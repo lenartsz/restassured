@@ -25,12 +25,13 @@ public class B01RestAssuredSimpleGETTests {
     // 3  New test cases
     // 4. Add with pathParams given().pathParam("id", "1") + path /{id}
     // 5. GET with queryParams given().queryParam("id","3").queryParam("id","4") NO path
-    // 6. BeforeAll RestAssured.config = RestAssured.config().sslConfig(sslConfig().relaxedHTTPSValidation()) + baseURI
-    /* 7. BeforeAll
+    // 6. Use global variables
+    // 7. BeforeAll RestAssured.config = RestAssured.config().sslConfig(sslConfig().relaxedHTTPSValidation()) + baseURI
+    /* 8. BeforeAll
      RequestSpecification requestSpec = new RequestSpecBuilder()
                 .setBaseUri("https://api.restful-api.dev/objects")
                 .setRelaxedHTTPSValidation()
-                .addHeader("Accept","application/json").build();
+                .addHeader("Accept","application/json").log(LogDetail.ALL).build();
 
         RestAssured.requestSpecification = requestSpec;
     /* 8.
@@ -43,28 +44,6 @@ public class B01RestAssuredSimpleGETTests {
         RestAssured.responseSpecification = globalResponseSpec;
     */
 
-    @BeforeAll
-    public static void setup() {
-        /*
-        RestAssured.config = RestAssured.config().sslConfig(sslConfig().relaxedHTTPSValidation());
-        baseURI = "https://api.restful-api.dev/objects";
-        */
-        RequestSpecification requestSpec = new RequestSpecBuilder()
-                .setBaseUri("https://api.restful-api.dev/objects")
-                .setRelaxedHTTPSValidation()
-                .addHeader("Accept","application/json").build();
-
-        RestAssured.requestSpecification = requestSpec;
-
-        ResponseSpecification globalResponseSpec = new ResponseSpecBuilder()
-                .expectStatusCode(200)
-                .log(LogDetail.ALL) // Log all response details
-                .build();
-
-        // Set it globally
-        RestAssured.responseSpecification = globalResponseSpec;
-
-    }
 
     @Test
     public void simpleGet() {
@@ -72,31 +51,6 @@ public class B01RestAssuredSimpleGETTests {
                 .header("Accept", "application/json")
                 .when()
                 .get("https://api.restful-api.dev/objects")
-                .then()
-                .statusCode(200);
-    }
-
-    @Test
-    public void simpleGet1() {
-        given()
-                .when()
-                .get()
-                .then();
-    }
-
-    @Test
-    public void simpleGetPathParam() {
-        given().pathParam("id", "7")
-                .when()
-                .get("{id}")
-                .then();
-    }
-
-    @Test
-    public void simpleGetQueryParam() {
-        given().queryParam("id", "7","id","10")
-                .when()
-                .get()
-                .then();
+                .then().statusCode(200);
     }
 }
