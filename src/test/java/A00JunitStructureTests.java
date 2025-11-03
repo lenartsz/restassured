@@ -1,10 +1,8 @@
 import org.junit.jupiter.api.*;
-
 import static org.junit.Assert.assertTrue;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 //2. Check order of test Execution/TestMethodOrder @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class A01JunitStructureTests {
+public class A00JunitStructureTests {
     // Annotations
     // 1. Three Testcase
     // 3. BeforeEach/BeforeAll/AfterEach/AfterAll
