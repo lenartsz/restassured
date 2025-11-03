@@ -27,7 +27,7 @@ import io.restassured.matcher.RestAssuredMatchers.*;
 //0. Check https://restful-api.dev/
 //1. Create a new device with POST: given.body(requestBody)
 //   Use Response to access to response details: then().extract().response();
-//2. use global static variables to store id: deviceId = response.path("id") and
+//2. use global private static variables to store id: deviceId = response.path("id") and
 //   name
 //3. Assert name
 //4. Run get with param, using the generated id, use the same validation
