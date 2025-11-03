@@ -27,8 +27,7 @@ import io.restassured.matcher.RestAssuredMatchers.*;
 //0. Check https://restful-api.dev/
 //1. Create a new device with POST: given.body(requestBody)
 //   Use Response to access to response details: then().extract().response();
-//2. use global static variables to store id: deviceId = response.path("id") and
-//   name
+//2. use global private static variables to store id: deviceId = response.path("id") and name
 //3. Assert name
 //4. Run get with param, using the generated id, use the same validation
 //5. Take care of the Order of the tests
@@ -38,7 +37,7 @@ import io.restassured.matcher.RestAssuredMatchers.*;
 //   System.out.println("\nSTART-------------------"+testInfo.getDisplayName()+"---------------------START\n");
 //7. Change name via PUT call, reuse requestBody + validation
 //8. Change only the name with PATCH only the name in JSON + validation
-//9. Delete + validation GET in the same test
+//9. Delete and validate message + validation GET in the same test
 //-------------------------------------------------------
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
