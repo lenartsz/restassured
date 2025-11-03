@@ -9,14 +9,16 @@ import org.junit.jupiter.api.*;
 
 import static io.restassured.RestAssured.given;
 
-public class B02RestAssuredSimplePostPutPatchDeleteTests {
+//------------------------------------------------------
+//0. Check https://restful-api.dev/
+//1. Create a new device with POST: given.body(requestBody)
+//2. Use simple GET with path param to check values
+//3. Use simple PUT to change name
+//4. Use simple PATCH to change name
+//5. Use simple Delete to change name
+//------------------------------------------------------
 
-    //0. https://jsontostring.com/
-    //1. Create a new device with POST: given.body(requestBody)
-    //2. Use simple GET with path param to check values
-    //3. Use simple PUT to change name
-    //4. Use simple PATCH to change name
-    //5. Use simple Delete to change name
+public class B02RestAssuredSimplePostPutPatchDeleteTests {
 
     @BeforeAll
     public static void setup() {
@@ -48,4 +50,5 @@ public class B02RestAssuredSimplePostPutPatchDeleteTests {
                 .post()
                 .then();
     }
+
 }
