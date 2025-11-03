@@ -39,6 +39,7 @@ import java.util.concurrent.TimeUnit;
     /* 8.
         ResponseSpecification globalResponseSpec = new ResponseSpecBuilder()
                 .expectStatusCode(200)
+                .expectResponseTime(lessThan(5000L), TimeUnit.MILLISECONDS)
                 .log(LogDetail.ALL) // Log all response details
                 .build();
 
