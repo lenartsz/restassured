@@ -38,7 +38,7 @@ import io.restassured.matcher.RestAssuredMatchers.*;
 //   System.out.println("\nSTART-------------------"+testInfo.getDisplayName()+"---------------------START\n");
 //7. Change name via PUT call, reuse requestBody + validation
 //8. Change only the name with PATCH only the name in JSON + validation
-//9. Delete + validation GET in the same test
+//9. Delete and validate message + validation GET in the same test
 //-------------------------------------------------------
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
