@@ -7,7 +7,10 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.jupiter.api.*;
 
+import java.io.File;
+
 import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 
 //------------------------------------------------------
 //0. Check https://restful-api.dev/
@@ -16,6 +19,7 @@ import static io.restassured.RestAssured.given;
 //3. Use simple PUT to change name
 //4. Use simple PATCH to change name
 //5. Use simple Delete to change name
+//6. Use json schema validation
 //------------------------------------------------------
 
 public class B02RestAssuredSimplePostPutPatchDeleteTests {
@@ -51,4 +55,18 @@ public class B02RestAssuredSimplePostPutPatchDeleteTests {
                 .then();
     }
 
+
+    
+    /*
+    @Test
+    public void simpleGetWithSchema() {
+        File myObj = new File("src/test/java/schema.json");
+        given()
+                .when()
+                .get()
+                .then()
+                .assertThat()
+                .body(matchesJsonSchema(myObj));
+    }
+    */
 }
